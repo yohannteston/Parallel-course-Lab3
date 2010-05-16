@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
   timer1=timer(); /*omp_get_wtime();*/
 #pragma omp parallel
   {
-#pragma omp for schedule(static, 50000) 
+#pragma omp for schedule(dynamic) 
     for (i=0;i<n;i++){
       B[i]=work(A[i]);
     }
