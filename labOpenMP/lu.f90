@@ -23,9 +23,11 @@ program lu
 
 !-- LU-factorize
   do k=1,n
+     !$OMP PARALLEL DO 
      do i=k+1,n
         A(i,k)=A(i,k)/A(k,k)
      end do
+     !$OMP PARALLEL DO PRIVATE(i)
      do j=k+1,n
         do i=k+1,n
            A(i,j)=A(i,j)-A(i,k)*A(k,j)
