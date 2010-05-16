@@ -1,0 +1,12 @@
+set title "Enumeration sort speedup"
+set ylabel "Speedup"
+set xlabel "Threads"
+set grid
+#set pointsize 2
+#set terminal postscript portrait enhanced
+#set term postscript eps enhanced
+#set output "graph.eps"
+plot "pic/enumsort_data.dat" index 0:0 using 1:($2/$3) ti "j-loop parallelized" with linespoints,\
+"pic/enumsort_data.dat" index 1 using 1:($2/$3) with linespoints ti "i-loop parallelized",\
+"pic/enumsort_data.dat" index 2 using 1:($2/$3) with linespoints ti "both loops parallelized"
+
