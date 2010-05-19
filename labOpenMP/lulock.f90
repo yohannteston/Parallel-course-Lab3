@@ -66,37 +66,38 @@ program lu
 !$OMP END PARALLEL
   timer=walltime()-timer
 
-  write(*,*) 'n = ',n,'   time = ',timer,'   nthr = ',nthr
+  !write(*,*) 'n = ',n,'   time = ',timer,'   nthr = ',nthr
+  write(*,*) 'Time: ',timer
 
 ! CHECK CORRECTNESS
-  do j=1,n
-     L(j,j)=1
-     U(j,j)=A(j,j)
-     do i=j+1,n
-        L(i,j)=A(i,j)
-        U(i,j)=0
-     end do
-     do i=1,j-1
-        U(i,j)=A(i,j)
-        L(i,j)=0
-     end do
-  end do
-  B=0
-  do j=1,n
-     do k=1,n
-        do i=1,n
-           B(i,j)=B(i,j)+L(i,k)*U(k,j)
-        end do
-     end do
-  end do
-  error=0.0
-  do j=1,n
-     do i=1,n
-        error=error+abs(1.0/(i+j)-B(i,j))
-     end do
-  end do
-
-  write(*,*) 'ERROR: ',error
+!  do j=1,n
+!     L(j,j)=1
+!     U(j,j)=A(j,j)
+!     do i=j+1,n
+!        L(i,j)=A(i,j)
+!        U(i,j)=0
+!     end do
+!     do i=1,j-1
+!        U(i,j)=A(i,j)
+!        L(i,j)=0
+!     end do
+!  end do
+!  B=0
+!  do j=1,n
+!     do k=1,n
+!        do i=1,n
+!           B(i,j)=B(i,j)+L(i,k)*U(k,j)
+!        end do
+!     end do
+!  end do
+!  error=0.0
+!  do j=1,n
+!     do i=1,n
+!        error=error+abs(1.0/(i+j)-B(i,j))
+!     end do
+!  end do
+!
+!  write(*,*) 'ERROR: ',error
 
 end program lu
 
