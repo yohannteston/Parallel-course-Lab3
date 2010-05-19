@@ -8,8 +8,7 @@
 
 	ENV['OMP_NUM_THREADS'] = "#{n}" ;
 	20.times {
-		system "export OMP_NUM_THREAD=#{n}"
-		out = `./lu` 
+		out = `./lulock` 
 		out_split = out.split " " ;
 		if(out_split[1].to_f < min_time)
 			min_time = out_split[1].to_f;
