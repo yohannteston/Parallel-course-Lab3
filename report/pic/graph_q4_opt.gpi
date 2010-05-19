@@ -2,6 +2,7 @@ set title "The different scheduling techniques with automatically sized chunk"
 set ylabel "Speedup"
 set xlabel "Threads"
 set grid
+set terminal postscript enhanced "Helvetica" 12
 #set pointsize 2
 #set terminal postscript portrait enhanced
 #set term postscript eps enhanced
