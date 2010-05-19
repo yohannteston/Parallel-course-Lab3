@@ -6,5 +6,5 @@ set grid
 #set terminal postscript portrait enhanced
 #set term postscript eps enhanced
 #set output "graph.eps"
-plot "pic/data_q4.dat" index 0:0 using 1:($2/$3) ti "Without schedule()" with linespoints
+plot "pic/data_loop.dat" index 0:0 using 1:($2/$3) ti "Without schedule()" with linespoints
 
