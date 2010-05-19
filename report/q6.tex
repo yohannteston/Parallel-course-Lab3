@@ -8,5 +8,5 @@
   \label{fig:lu}
 \end{figure}
 
-The straigthforward parallelized version of the algorithm only get advantage of the parallelization with a low number of thread, where the LU lock version take advantage of any number of thread, but the speedup increase slowly. This is due to the reduction of the overhead by only synchronizing a subset of the thread.
+The straigthforward parallelized version of the algorithm only gets advantage of the parallelization with a low number of thread, where the LU lock version takes advantage of any number of threads, but the speedup increase slowly. This is due to the reduction of the overhead by only synchronizing a subset of the threads. Such synchronization takes less time than a barrier when it comes to large number of threads. Conversely, barriers are better with a few threads.
 

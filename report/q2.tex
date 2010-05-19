@@ -9,8 +9,8 @@ a= 10 b= 10
 a= 10 b= 10
 \end{verbatim}
 
-As we see every thread modifies $a$ locally, so they don't use the first initialization of $a$.
-After adding the $firstprivate$ pragma, we can expect that $a$ will get $10$ one time in each thread starting to $a = 10$:
+As we see every thread modifies its own $a$ locally, so they do not use the first initialization of $a$. Therefore, the $a$ manipulated by the threads is not the global $a$ but a local variable (which was not initialized). 
+After adding the $firstprivate$ pragma, we can expect that $a$ will be added $10$ once in each thread, but this time starting from $a = 10$, because the local $a$ is initialized with the value of the global $a$:
 
 \begin{verbatim}
 $ ./datasharing 
@@ -20,4 +20,4 @@ a= 20 b= 10
 a= 20 b= 10
 \end{verbatim}
 
-We see that $a$ is now initialized to 10  and equals to $20$ as the calculus $a += b$ is made in every thread.
+We see that $a$ is now initialized to 10 and equals to $20$ at the end because the calculus $a += b$ is made in every thread.
