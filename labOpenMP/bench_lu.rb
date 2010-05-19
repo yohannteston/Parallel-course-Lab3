@@ -6,6 +6,7 @@
 [1,4,8,12,16,24,32,48,64].each do |n|
 	min_time = 10000000000 ;
 
+	ENV['OMP_NUM_THREADS'] = "#{n}" ;
 	20.times {
 		system "export OMP_NUM_THREAD=#{n}"
 		out = `./lu` 
