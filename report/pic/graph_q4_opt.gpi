@@ -2,11 +2,12 @@ set title "The different scheduling techniques with automatically sized chunk"
 set ylabel "Speedup"
 set xlabel "Threads"
 set grid
+set terminal postscript enhanced "Helvetica" 12
 #set pointsize 2
 #set terminal postscript portrait enhanced
 #set term postscript eps enhanced
 #set output "graph.eps"
-plot "pic/data_q4_opt.dat" index 0:0 using 1:($2/$3) ti "Static" with linespoints,\
-"pic/data_q4_opt.dat" index 1 using 1:($2/$3) with linespoints ti "Dynamic",\
-"pic/data_q4_opt.dat" index 2 using 1:($2/$3) with linespoints ti "Guided"
+plot "pic/data_static.dat" index 2 using 1:($2/$3) ti "Static" with linespoints,\
+"pic/data_dynamic.dat" index 2 using 1:($2/$3) with linespoints ti "Dynamic",\
+"pic/data_guided.dat" index 2 using 1:($2/$3) with linespoints ti "Guided"
 
