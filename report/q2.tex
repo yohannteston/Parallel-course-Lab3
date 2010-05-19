@@ -1,23 +1,23 @@
 \chapter{Data sharing}
 
-We can assume that $a$ will be globally modified after the datasharing program:
+We can assume that $a$ will be equal to 10 after the datasharing program:
+\begin{verbatim}
+$ ./datasharing 
+a= 10 b= 10
+a= 10 b= 10
+a= 10 b= 10
+a= 10 b= 10
+\end{verbatim}
+
+As we see every thread modifies $a$ locally, so they don't use the first initialization of $a$.
+After adding the $firstprivate$ pragma, we can expect that $a$ will get $10$ one time in each thread starting to $a = 10$:
+
 \begin{verbatim}
 $ ./datasharing 
 a= 20 b= 10
-a= 30 b= 10
-a= 40 b= 10
-a= 50 b= 10
-\end{verbatim}
-
-As we see every thread modifies $a$ since it is a global variable.
-After adding the $firstprivate$ pragma, we can expect that $a$ will get $10$ one time:
-
-\begin{verbatim}
-$ ./datasharing 
-a= 20 b= 10
 a= 20 b= 10
 a= 20 b= 10
 a= 20 b= 10
 \end{verbatim}
 
-We see that $a$ is now private and equals to $20$ as the calculus $a += b$ is only made once.
+We see that $a$ is now initialized to 10  and equals to $20$ as the calculus $a += b$ is made in every thread.
