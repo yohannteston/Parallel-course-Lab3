@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
   int a,b;
   a=10;b=10;
  
-#pragma omp parallel private(a)
+#pragma omp parallel firstprivate(a)
   {
     a+=b;
     printf("a= %d b= %d\n",a,b);
