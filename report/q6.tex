@@ -1,0 +1,12 @@
+\chapter{LU-factorization, an advanced example}
+
+\begin{figure}[!h]
+  \begin{center}
+         \resizebox{160mm}{!}{\includegraphics{pic/graph_lu.eps}}
+  \end{center}
+  \caption{LU and LU lock speedup comparison}
+  \label{fig:lu}
+\end{figure}
+
+The straigthforward parallelized version of the algorithm only get advantage of the parallelization with a low number of thread, where the LU lock version take advantage of any number of thread, but the speedup increase slowly. This is due to the reduction of the overhead by only synchronizing a subset of the thread.
+
