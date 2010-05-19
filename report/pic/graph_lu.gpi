@@ -1,0 +1,8 @@
+set title "LU and LU lock speedup"
+set ylabel "Speedup"
+set xlabel "Threads"
+set grid
+set terminal postscript enhanced "Helvetica" 12
+plot "pic/data_lu.dat" index 0:0 using 1:($2/$3) ti "LU" with linespoints,\
+"pic/data_lu.dat" index 1 using 1:($2/$3) with linespoints ti "LU lock"
+
